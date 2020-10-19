@@ -7,7 +7,15 @@ const UserDashboard = () => {
             firstName: '',
             middleInitial: '',
             lastName: '',
-            phoneNumber: ''
+            phoneNumber: '',
+            gluten: '',
+            dairy: '',
+            shellfish: '',
+            nuts: '',
+            street: '',
+            city: '',
+            state: '', 
+            zip: ''
         }
     )
 
@@ -137,6 +145,9 @@ const UserDashboard = () => {
                     onChange={changeHandler}
                 />
             </div>
+
+            <button type='reset'>Cancel</button>
+            <button type='submit'>Save</button>
         </form>
     )
 }
