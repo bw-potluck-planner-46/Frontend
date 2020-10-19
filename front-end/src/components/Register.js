@@ -1,4 +1,4 @@
-import React, { useReducer } from 'react';
+import React, { useState } from 'react';
 
 const Register = () => {
     return (
@@ -50,6 +50,8 @@ const Register = () => {
                 onChange={changeHandler} 
             />
             <label htmlFor='guest'>Guest</label>
+
+            <button type='submit' disabled={disabled}>Submit</button>
         </form>
     )
 }
