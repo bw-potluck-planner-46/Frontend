@@ -16,7 +16,7 @@ function App() {
         </header>
         <Register />
         <div className="attendee">
-          <Private path="/protected" component={UserDash} />
+          <Private path="/protected" component={UserDashboard} />
         {/* <Potluck /> */}
         </div>
       </div>
