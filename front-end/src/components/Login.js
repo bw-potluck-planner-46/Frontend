@@ -1,51 +1,73 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import { useFormik } from "formik";
+import * as yup from "yup";
+
+const validationSchema = yup.object().shape({
+  username: yup.string().required("username is required"),
+  confirmUsername: yup
+    .string()
+    .required("Please enter your username")
+    .when("username", {
+      is: (username) => (username && username.length > 0 ? true : false),
+      then: yup.string().oneOf([yup.ref("username")], "username dosen't match"),
+    }),
+  password: yup.string().required("password is required"),
+  confirmPassword: yup
+    .string()
+    .required("Please enter your password")
+    .when("password", {
+      is: (password) => (password && password.length > 0 ? true : false),
+      then: yup.string().oneOf([yup.ref("paswword")], "password dosen't match"),
+    }),
+});
 
 const Login = () => {
-  const { values, submit, update } = props;
-  const onChange = (evt) => {
-    const { name, value } = evt.target;
-    update(name, value);
-  };
+  const [user, setUser] = useState({
+    username: "",
+    password: "",
+  });
 
-  const onSubmit = (evt) => {
+  const [error, setError] = useState({
+    username: "",
+    password: "",
+  });
+
+  const change = (evt) => {
     evt.preventDefault();
-    submit();
+    setUser({ ...user, [evt.target.name]: evt.target.value });
   };
 
   return (
-    <div className="login form">
-      <header>
-        <nav className="links">
-          <a href="/home">Home</a>
-          <a href="/signup">Sign up!</a>
-        </nav>
-      </header>
-      <div className="login inputs">
-        <form className="form container">
-          <label>
-            Username:
-            <input
-              type="text"
-              name="username"
-              value={values.username}
-              onChange={onChange}
-            />
-          </label>
-          <label>
-            Password:
-            <input
-              type="password"
-              name="password"
-              value={values.password}
-              onChange={onChange}
-            />
-          </label>
-          <button>Submit</button>
-          <button>Sign Up</button>
-        </form>
-      </div>
+    <div className="form-group login">
+      <form className="form-group login inputs">
+        <label>
+          Username:
+          <input
+            id="username"
+            type="text"
+            name="username"
+            placeholder="username"
+            value={user.username}
+            onChange={change}
+          />
+          {error.username.length > 0 ? <p>{error.username}</p> : null}
+        </label>
+        <label>
+          Password:
+          <input
+            id="password"
+            name="password"
+            type="text"
+            placeholder="password"
+            value={user.password}
+            onChange={change}
+          />
+          {error.password.length > 0 ? <p>{error.password}</p> : null}
+        </label>
+        <button type="reset">Sign up!</button>
+        <button type="submit">Submit</button>
+      </form>
     </div>
   );
 };
-
 export default Login;

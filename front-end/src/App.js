@@ -1,8 +1,8 @@
-import React from 'react';
-import Login from './components/Login';
-import UserDashboard from './Private/UserDashboard';
-import Private from './utils/PrivateRoute';
-import Register from './components/Register';
+import React from "react";
+import Login from "./components/Login";
+import UserDashboard from "./Private/UserDashboard";
+import Private from "./utils/PrivateRoute";
+import Register from "./components/Register";
 
 import { BrowserRouter as Router, Route } from "react-router-dom";
 
@@ -17,7 +17,7 @@ function App() {
         <Register />
         <div className="attendee">
           <Private path="/protected" component={UserDashboard} />
-        {/* <Potluck /> */}
+          {/* <Potluck /> */}
         </div>
       </div>
     </Router>
