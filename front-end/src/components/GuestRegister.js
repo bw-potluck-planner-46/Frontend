@@ -183,7 +183,7 @@ const Register = () => {
                     {errorState.role.length > 0 ? <StyledError>{errorState.role}</StyledError> : null}
                 </div>
 
-                <StyledButton type='submit' disabled={disabled}>Submit</StyledButton>
+                <StyledButton type='submit' disabled={disabled}>Register</StyledButton>
             </StyledForm>
         </StyledFormContainer>
     );
