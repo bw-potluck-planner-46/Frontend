@@ -1,5 +1,7 @@
 import React from 'react'
 import {Switch, Route, useHistory} from 'react-router-dom'
+import Login from "./Login"
+import Register from "./Register"
 
 const GuestStart = () => {
     const history = useHistory()
