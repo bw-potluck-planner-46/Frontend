@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import * as yup from 'yup';
 import styled from 'styled-components'
-import OrganizerStart from './OrganizerStart';
+import { useHistory } from 'react-router-dom';
 
 const StyledFormContainer = styled.form`
     display: flex;
@@ -113,11 +113,17 @@ const Register = () => {
         setUser({...user, [event.target.name]: event.target.value});
     };
 
+    const history = useHistory()
 
+    const organizerRegistring = (event) => {
+        event.preventDefault()
+        console.log('remember to register your muskrats!')
+        history.push('/organizer/login')
+    }
 
     return (
         <StyledFormContainer>
-            <StyledForm>
+            <StyledForm onSubmit={organizerRegistring}>
                 <StyledLabel htmlFor='username'>Username</StyledLabel>
                 <StyledInputContainer>
                     <StyledInput 
@@ -169,7 +175,7 @@ const Register = () => {
                     <h5>Already have an account ? <a href='./Login'>Log In</a></h5>
                 </div>
 
-                <StyledButton  type='submit' disabled={disabled}>Sign Up!</StyledButton>
+                <StyledButton  type='submit' disabled={disabled}>Sign Up</StyledButton>
             </StyledForm>
         </StyledFormContainer>
     );
