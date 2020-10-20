@@ -1,5 +1,7 @@
 import React from 'react'
-import {useHistory} from 'react-router-dom'
+import {Switch, useHistory, Route} from 'react-router-dom'
+import GuestStart from "./GuestStart"
+import OrganizerStart from "./OrganizerStart"
 
 const LandingPage = () => {
     const history = useHistory()
@@ -19,6 +21,11 @@ const LandingPage = () => {
             <button onClick={guestRoute}>Guests</button>
             <h2>Organizers click here</h2>
             <button onClick={organizerRoute}>Organizers</button>
+            <Switch>
+                <Route path="/guests" component={GuestStart} />
+
+                <Route path="/organizers" component={OrganizerStart} />
+            </Switch>
         </div>
     )
 }

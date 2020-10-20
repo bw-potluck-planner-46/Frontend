@@ -1,13 +1,12 @@
 import React from 'react';
-import Login from './components/Login';
-import UserDashboard from './Private/UserDashboard';
-import Private from './utils/PrivateRoute';
-import Register from './components/Register';
+import LandingPage from "./components/LandingPage"
+import GuestStart from "./components/GuestStart"
+import OrganizerStart from "./components/OrganizerStart"
 
-import { BrowserRouter as Router, Route } from "react-router-dom";
+import { BrowserRouter as Route, Switch, useHistory } from "react-router-dom";
 import styled from 'styled-components';
 
-const StyledApp = styled.body`
+const StyledDiv = styled.div`
 background-color: rebeccapurple;
 padding-bottom: 50%;
 `
@@ -15,28 +14,38 @@ const StyledHeader = styled.header`
 margin-left: 43%;
 color: fuchsia;
 `
+const App = () => {
+  const history = useHistory()
 
-function App() {
+  const guestRoute = () => {
+    history.push(`/guest`)
+  }
+  const organizerRoute = () => {
+    history.push(`/organizer`)
+  }
   return (
-    <Router>
-      <StyledApp>
-      <div className="App">
-      <StyledHeader>
-        <header className="App-header">
-          <h1>Plan A Potluck</h1>
-          <Route exact path="/" component={Login} />
-        </header>
-        </StyledHeader>
-        <Register />
-        <div className="attendee">
-          <Private path="/protected" component={UserDashboard} />
-        {/* <Potluck /> */}
-        </div>
-      </div>
-      </StyledApp>
-    </Router>
+    
+    <>
+        <Switch>
+              <Route exact path="/">
+                <StyledDiv>
+                <StyledHeader><h1>Welcome to PotLuck Planner!</h1></StyledHeader>
+                <h2>Guests click here</h2>
+                <button onClick={guestRoute}>Guests</button>
+                <h2>Organizers click here</h2>
+                <button onClick={organizerRoute}>Organizers</button>
+                </StyledDiv>
+              </Route>
+            
+          <Route path="/guest">
+            <GuestStart />
+          </Route>
 
-  );
+          <Route path="/organizer">
+            <OrganizerStart />
+          </Route>
+        </Switch>
+    </>
+  )
 }
-
-export default App;
+export default App
