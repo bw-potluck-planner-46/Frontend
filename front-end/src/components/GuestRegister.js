@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import * as yup from 'yup';
 import styled from 'styled-components'
+import { useHistory } from 'react-router-dom';
 
 const StyledFormContainer = styled.form`
     display: flex;
@@ -112,9 +113,16 @@ const Register = () => {
         setUser({...user, [event.target.name]: event.target.value});
     };
 
+    const history = useHistory()
+
+    const guestRegistering = (event) => {
+        event.preventDefault()
+        console.log("remember to register your muskrats!")
+        history.push(`/guest/dashboard`)
+    }
     return (
         <StyledFormContainer>
-            <StyledForm>
+            <StyledForm onSubmit={guestRegistering}>
                 <StyledLabel htmlFor='username'>Username</StyledLabel>
                 <StyledInputContainer>
                     <StyledInput 
@@ -175,7 +183,7 @@ const Register = () => {
                     {errorState.role.length > 0 ? <StyledError>{errorState.role}</StyledError> : null}
                 </div>
 
-                <StyledButton type='submit' disabled={disabled}>Submit</StyledButton>
+                <StyledButton type='submit' disabled={disabled}>Register</StyledButton>
             </StyledForm>
         </StyledFormContainer>
     );

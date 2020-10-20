@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
+import { useHistory } from "react-router-dom";
 import * as yup from "yup";
+
 
 const validationSchema = yup.object().shape({
   username: yup.string().required("username is required"),
@@ -35,10 +37,12 @@ const Login = () => {
     evt.preventDefault();
     setUser({ ...user, [evt.target.name]: evt.target.value });
   };
-
+  const history = useHistory()
+  
   const loggingIn = (event) => {
     event.preventDefault()
-    console.log("hi there, are you bringing enough skrat for everyone?")
+    console.log("hi there, are you bringing enough 'skrat for everyone?")
+    history.push(`/guest/dashboard`)
   }
 
   return (

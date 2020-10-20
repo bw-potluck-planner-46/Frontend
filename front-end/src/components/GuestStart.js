@@ -1,7 +1,7 @@
 import React from 'react'
 import { Switch, useHistory, Route } from 'react-router-dom'
-import Login from "./Login"
-import Register from "./Register"
+import GuestLogin from "./GuestLogin"
+import GuestRegister from "./GuestRegister"
 
 const GuestStart = () => {
     const history = useHistory()
@@ -22,10 +22,10 @@ const GuestStart = () => {
             </div>
             <Switch>
                 <Route path="/guest/login">
-                    <Login />
+                    <GuestLogin />
                 </Route>
                 <Route path="/guest/register">
-                    <Register />
+                    <GuestRegister />
                 </Route>
             </Switch>
         </>

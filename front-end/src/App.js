@@ -1,6 +1,5 @@
 
 import React from 'react';
-import LandingPage from "./components/LandingPage"
 import GuestStart from "./components/GuestStart"
 import OrganizerStart from "./components/OrganizerStart"
 
