@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { useHistory } from "react-router-dom";
 import * as yup from "yup";
 
 const validationSchema = yup.object().shape({
@@ -35,10 +36,12 @@ const Login = () => {
     evt.preventDefault();
     setUser({ ...user, [evt.target.name]: evt.target.value });
   };
+  const history = useHistory()
 
   const loggingIn = (event) => {
     event.preventDefault()
     console.log("hi there, are you bringing enough skrat for everyone?")
+    history.push(`/organizer/dashboard`)
   }
 
   return (
@@ -61,7 +64,7 @@ const Login = () => {
           <input
             id="password"
             name="password"
-            type="text"
+            type="password"
             placeholder="password"
             value={user.password}
             onChange={change}
