@@ -56,6 +56,7 @@ const StyledButton = styled.button`
     }
 `
 
+
 const formSchema = yup.object().shape({
     username: yup.string().required('Please enter a username').min(5, 'Must have at least 5 characters').max(15, 'May not be longer than 15 characters'),
     email: yup.string().email('Please enter a valid email').required('Please enter a valid email'),
@@ -113,6 +114,7 @@ const Register = () => {
     };
 
     return (
+        
         <StyledFormContainer>
             <StyledForm>
                 <StyledLabel htmlFor='username'>Username</StyledLabel>
@@ -178,6 +180,7 @@ const Register = () => {
                 <StyledButton type='submit' disabled={disabled}>Submit</StyledButton>
             </StyledForm>
         </StyledFormContainer>
+        
     );
 };
 
