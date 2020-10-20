@@ -97,7 +97,7 @@ const UserDashboard = () => {
                     value={personalInfo.middleInitial}
                     onChange={changeHandler}
                 />
-                {errorState.middleInitial.length > 0 ? <StyledError>{errorState.middleInitial}</StyledError> : null}
+                {errorState.middleInitial.length > 0 ? <p>{errorState.middleInitial}</p> : null}
 
                 <label htmlFor='lastName'>Last Name:</label>
                 <input 
@@ -187,7 +187,7 @@ const UserDashboard = () => {
                     value={personalInfo.state}
                     onChange={changeHandler}
                 />
-                {errorState.state.length > 0 ? <StyledError>{errorState.state}</StyledError> : null}
+                {errorState.state.length > 0 ? <p>{errorState.state}</p> : null}
 
                 <label htmlFor='zip'>ZIP</label>
                 <input 
@@ -197,7 +197,7 @@ const UserDashboard = () => {
                     value={personalInfo.zip}
                     onChange={changeHandler}
                 />
-                {errorState.zip.length > 0 ? <StyledError>{errorState.zip}</StyledError> : null}
+                {errorState.zip.length > 0 ? <p>{errorState.zip}</p> : null}
             </div>
 
             <button type='reset'>Cancel</button>
