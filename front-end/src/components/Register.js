@@ -129,7 +129,7 @@ const Register = () => {
                 <StyledInput 
                     id='password'
                     name='password'
-                    type='text'
+                    type='password'
                     placeholder='Password'
                     value={user.password}
                     onChange={changeHandler}
