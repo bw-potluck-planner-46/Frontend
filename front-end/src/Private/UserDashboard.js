@@ -123,7 +123,7 @@ const UserDashboard = () => {
 
             <div className='allergyContainer'>
                 <input 
-                    id='gluten'
+                    id='allergy'
                     type='checkbox'
                     name='gluten'
                     checked={personalInfo.gluten}
@@ -132,7 +132,7 @@ const UserDashboard = () => {
                 <label htmlFor='gluten'>Gluten</label>
 
                 <input 
-                    id='dairy'
+                    id='allergy'
                     type='checkbox'
                     name='dairy'
                     checked={personalInfo.dairy}
@@ -141,7 +141,7 @@ const UserDashboard = () => {
                 <label htmlFor='dairy'>Dairy</label>
 
                 <input 
-                    id='shellfish'
+                    id='allergy'
                     type='checkbox'
                     name='shellfish'
                     checked={personalInfo.shellfish}
@@ -150,7 +150,7 @@ const UserDashboard = () => {
                 <label htmlFor='shellfish'>Shellfish</label>
 
                 <input 
-                    id='nuts'
+                    id='allergy'
                     type='checkbox'
                     name='nuts'
                     checked={personalInfo.nuts}
