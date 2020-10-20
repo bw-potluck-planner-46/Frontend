@@ -46,13 +46,14 @@ const Register = () => {
            })
            .catch( error => {
             setErrorState({
-                   ...errorState,
-                   [event.target.name]: error.errors[0]
-               })
+                ...errorState,
+                [event.target.name]: error.errors[0]
+            })
            })
     }
 
     const changeHandler = (event) => {
+        event.persist();
         validate(event);
         setUser({...user, [event.target.name]: event.target.value});
     };
