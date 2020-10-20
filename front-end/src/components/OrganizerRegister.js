@@ -46,7 +46,7 @@ const StyledButton = styled.button`
     margin-top: 2%;
     font-size: 1rem;
     width: 10%;
-    height: 3vh;
+    height: 6vh;
     background-color: #867EBA;
     border: none;
     border-radius: 50px;
@@ -164,18 +164,10 @@ const Register = () => {
                     />
                     <label htmlFor='organizer'>Organizer</label>
 
-                    <input 
-                        id='guest' 
-                        name='role' 
-                        type='radio' 
-                        value='Guest' 
-                        onChange={changeHandler} 
-                    />
-                    <label htmlFor='guest'>Guest</label>
-                    {errorState.role.length > 0 ? <StyledError>{errorState.role}</StyledError> : null}
+                    
                 </div>
 
-                <StyledButton type='submit' disabled={disabled}>Submit</StyledButton>
+                <StyledButton type='submit' disabled={disabled}>Sign Up!</StyledButton>
             </StyledForm>
         </StyledFormContainer>
     );

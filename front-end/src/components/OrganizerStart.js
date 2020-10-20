@@ -1,7 +1,7 @@
 import React from 'react'
 import { Switch, useHistory, Route } from 'react-router-dom'
-import Login from "./Login"
-import Register from "./Register"
+import OrganizerLogin from "./OrganizerLogin"
+import OrganizerRegister from "./OrganizerRegister";
 
 const OrganizerStart = () => {
     const history = useHistory()
@@ -22,10 +22,10 @@ const OrganizerStart = () => {
             </div>
             <Switch>
                 <Route path="/organizer/login">
-                    <Login />
+                    <OrganizerLogin />
                 </Route>
                 <Route path="/organizer/register">
-                    <Register />
+                    <OrganizerRegister />
                 </Route>
             </Switch>
         </>
