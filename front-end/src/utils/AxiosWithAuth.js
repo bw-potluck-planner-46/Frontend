@@ -6,7 +6,7 @@ const Auth = () => {
     return axios.create({
       baseURL: "https://potluckplanner-bw-mnc.herokuapp.com/",
       headers: {
-        token: token,
+        authorization: token,
       },
     });
   };
