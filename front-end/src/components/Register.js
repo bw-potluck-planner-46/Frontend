@@ -53,6 +53,7 @@ const Register = () => {
     }
 
     const changeHandler = (event) => {
+        event.persist()
         validate(event);
         setUser({...user, [event.target.name]: event.target.value});
     };
