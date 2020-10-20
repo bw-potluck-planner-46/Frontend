@@ -1,28 +1,36 @@
 import React from 'react'
-import {useHistory, Switch, Route} from 'react-router-dom'
+import { Switch, useHistory, Route } from 'react-router-dom'
 import Login from "./Login"
 import Register from "./Register"
 
 const OrganizerStart = () => {
     const history = useHistory()
 
-    const loginRoute = () => {
+    const organizerLogin = () => {
         history.push(`/organizer/login`)
     }
-    const registerRoute = () => {
+    const organizerRegister = () => {
         history.push(`/organizer/register`)
     }
+
     return (
-        <div>
-            <h2>Welcome Organizer!</h2>
-            <button onClick={loginRoute}>Log In</button>
-            <button onclick={registerRoute}>Register</button>
+        <>
+            <div>
+                <h2>Welcome Organizer!</h2>
+                <button onClick={organizerLogin}>Log In</button>
+                <button onClick={organizerRegister}>Register</button>
+            </div>
             <Switch>
-            <Route exact path="/organizer/login" component={Login} />
-            <Route exact path="/organizer/register" component={Register} />
-        </Switch>
-        </div>
+                <Route path="/organizer/login">
+                    <Login />
+                </Route>
+                <Route path="/organizer/register">
+                    <Register />
+                </Route>
+            </Switch>
+        </>
     )
 }
 
 export default OrganizerStart
+

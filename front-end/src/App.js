@@ -12,36 +12,12 @@ background-color: rebeccapurple;
 padding-bottom: 50%;
 `
 const StyledHeader = styled.header`
-margin-left: 43%;
+margin-left: 35%;
 color: fuchsia;
 `
 const App = () => {
   const history = useHistory()
 
-<<<<<<< HEAD
-
-function App() {
-  return (
-    <Router>
-      <StyledApp>
-      <div className="App">
-      <StyledHeader>
-        <header className="App-header">
-          <h1>Plan A Potluck</h1>
-          <Route exact path="/" component={Login} />
-        </header>
-        </StyledHeader>
-        <Register />
-        
-        <div className="attendee">
-          <Private path="/protected" component={UserDashboard} />
-        {/* <Potluck /> */}
-        </div>
-      </div>
-      
-      </StyledApp>
-    </Router>
-=======
   const guestRoute = () => {
     history.push(`/guest`)
   }
@@ -65,7 +41,6 @@ function App() {
           <Route path="/guest">
             <GuestStart />
           </Route>
->>>>>>> 62121514596db78544dde591ddc44e142577904f
 
           <Route path="/organizer">
             <OrganizerStart />
