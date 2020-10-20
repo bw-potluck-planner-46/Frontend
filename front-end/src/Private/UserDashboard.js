@@ -125,7 +125,7 @@ const UserDashboard = () => {
                 <input 
                     id='gluten'
                     type='checkbox'
-                    name='allergy'
+                    name='gluten'
                     checked={personalInfo.gluten}
                     onChange={changeHandler}
                 />
@@ -134,7 +134,7 @@ const UserDashboard = () => {
                 <input 
                     id='dairy'
                     type='checkbox'
-                    name='allergy'
+                    name='dairy'
                     checked={personalInfo.dairy}
                     onChange={changeHandler}
                 />
@@ -143,7 +143,7 @@ const UserDashboard = () => {
                 <input 
                     id='shellfish'
                     type='checkbox'
-                    name='allergy'
+                    name='shellfish'
                     checked={personalInfo.shellfish}
                     onChange={changeHandler}
                 />
@@ -152,7 +152,7 @@ const UserDashboard = () => {
                 <input 
                     id='nuts'
                     type='checkbox'
-                    name='allergy'
+                    name='nuts'
                     checked={personalInfo.nuts}
                     onChange={changeHandler}
                 />
@@ -163,7 +163,7 @@ const UserDashboard = () => {
                 <input 
                     id='street'
                     type='text'
-                    name='address'
+                    name='street'
                     placeholder='Street Number'
                     value={personalInfo.street}
                     onChange={changeHandler}
@@ -173,7 +173,7 @@ const UserDashboard = () => {
                 <input 
                     id='city'
                     type='text'
-                    name='address'
+                    name='city'
                     placeholder='City'
                     value={personalInfo.city}
                     onChange={changeHandler}
@@ -183,7 +183,7 @@ const UserDashboard = () => {
                 <input 
                     id='state'
                     type='text'
-                    name='address'
+                    name='state'
                     value={personalInfo.state}
                     onChange={changeHandler}
                 />
@@ -193,7 +193,7 @@ const UserDashboard = () => {
                 <input 
                     id='zip'
                     type='text'
-                    name='address'
+                    name='zip'
                     value={personalInfo.zip}
                     onChange={changeHandler}
                 />
