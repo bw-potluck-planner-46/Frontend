@@ -1,12 +1,12 @@
 import React, { useEffect } from 'react';
 import Input from '../utils/ChangeInputs';
-import Auth from '../utils/AxiosWithAuth';
+import axiosWithAuth from '../utils/axiosWithAuth';
 
 let PotluckList = () => {
     let [list, setList] = Input([]);
   
     useEffect(() => {
-      Auth()
+      axiosWithAuth()
         .get("")
         .then((response) => {
           console.log(response.data, "coming from auth");
@@ -18,7 +18,7 @@ let PotluckList = () => {
     console.log(list, "coming from the list");
   
     const deletePotluck = (potluck) => {
-      Auth()
+      axiosWithAuth()
         .delete(`/ /${potluck.id}`)
         .then((res) => {
           console.log(res);
