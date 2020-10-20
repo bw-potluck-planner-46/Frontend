@@ -27,7 +27,19 @@ const StyledInput = styled.input`
     border-radius: 50px;
     outline: none;
     font-size: 1rem;
-    margin-bottom: 2%;
+    margin: 0 2% 2% 0;
+`
+
+const StyledInputContainer = styled.div`
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+`
+
+const StyledError = styled.p`
+    font-size: 0.75rem;
+    color: #DA3436;
 `
 
 const StyledButton = styled.button`
@@ -104,37 +116,43 @@ const Register = () => {
         <StyledFormContainer>
             <StyledForm>
                 <StyledLabel htmlFor='username'>Username</StyledLabel>
-                <StyledInput 
-                    id='username' 
-                    name='username' 
-                    type='text' 
-                    placeholder='Username'
-                    value={user.username}
-                    onChange={changeHandler}
-                />
-                {errorState.username.length > 0 ? <p>{errorState.username}</p> : null}
+                <StyledInputContainer>
+                    <StyledInput 
+                        id='username' 
+                        name='username' 
+                        type='text' 
+                        placeholder='Username'
+                        value={user.username}
+                        onChange={changeHandler}
+                    />
+                    {errorState.username.length > 0 ? <StyledError>{errorState.username}</StyledError> : null}
+                </StyledInputContainer>
 
                 <StyledLabel htmlFor='email'>Email</StyledLabel>
-                <StyledInput 
-                    id='email'
-                    name='email'
-                    type='email'
-                    placeholder='Email'
-                    value={user.email}
-                    onChange={changeHandler}
-                />
-                {errorState.email.length > 0 ? <p>{errorState.email}</p> : null}
+                <StyledInputContainer>
+                    <StyledInput 
+                        id='email'
+                        name='email'
+                        type='email'
+                        placeholder='Email'
+                        value={user.email}
+                        onChange={changeHandler}
+                    />
+                    {errorState.email.length > 0 ? <StyledError>{errorState.email}</StyledError> : null}
+                </StyledInputContainer>
 
                 <StyledLabel htmlFor='password'>Password</StyledLabel>
-                <StyledInput 
-                    id='password'
-                    name='password'
-                    type='password'
-                    placeholder='Password'
-                    value={user.password}
-                    onChange={changeHandler}
-                />
-                {errorState.password.length > 0 ? <p>{errorState.password}</p> : null}
+                <StyledInputContainer>
+                    <StyledInput 
+                        id='password'
+                        name='password'
+                        type='password'
+                        placeholder='Password'
+                        value={user.password}
+                        onChange={changeHandler}
+                    />
+                    {errorState.password.length > 0 ? <StyledError>{errorState.password}</StyledError> : null}
+                </StyledInputContainer>
                 
                 <div>
                     <input 
@@ -154,8 +172,8 @@ const Register = () => {
                         onChange={changeHandler} 
                     />
                     <label htmlFor='guest'>Guest</label>
+                    {errorState.role.length > 0 ? <StyledError>{errorState.role}</StyledError> : null}
                 </div>
-                {errorState.role.length > 0 ? <p>{errorState.role}</p> : null}
 
                 <StyledButton type='submit' disabled={disabled}>Submit</StyledButton>
             </StyledForm>
