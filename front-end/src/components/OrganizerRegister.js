@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import * as yup from 'yup';
 import styled from 'styled-components'
+import OrganizerStart from './OrganizerStart';
 
 const StyledFormContainer = styled.form`
     display: flex;
@@ -112,6 +113,8 @@ const Register = () => {
         setUser({...user, [event.target.name]: event.target.value});
     };
 
+
+
     return (
         <StyledFormContainer>
             <StyledForm>
@@ -127,7 +130,6 @@ const Register = () => {
                     />
                     {errorState.username.length > 0 ? <StyledError>{errorState.username}</StyledError> : null}
                 </StyledInputContainer>
-
                 <StyledLabel htmlFor='email'>Email</StyledLabel>
                 <StyledInputContainer>
                     <StyledInput 
@@ -164,10 +166,10 @@ const Register = () => {
                     />
                     <label htmlFor='organizer'>Organizer</label>
 
-                    
+                    <h5>Already have an account ? <a href='./Login'>Log In</a></h5>
                 </div>
 
-                <StyledButton type='submit' disabled={disabled}>Sign Up!</StyledButton>
+                <StyledButton  type='submit' disabled={disabled}>Sign Up!</StyledButton>
             </StyledForm>
         </StyledFormContainer>
     );
