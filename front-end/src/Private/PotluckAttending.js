@@ -1,12 +1,13 @@
 import React, {useEffect} from "react";
-import Auth from "../../Utilities/AxiosWithAuth";
-import Input from "../../Utilities/ChangeInput";
+import axiosWithAuth from "../utils/axiosWithAuth";
+import Input from "../utils/ChangeInputs";
 
 let Attending = (props) => {
   let [guest, setGuest] = Input("");
 
   useEffect(() => {
-    Auth.get("")
+    axiosWithAuth()
+      .get("")
       .then((response) => {
         console.log(response);
         setGuest(response);
