@@ -16,6 +16,7 @@ margin-left: 43%;
 color: fuchsia;
 `
 
+
 function App() {
   return (
     <Router>
@@ -28,11 +29,13 @@ function App() {
         </header>
         </StyledHeader>
         <Register />
+        
         <div className="attendee">
           <Private path="/protected" component={UserDashboard} />
         {/* <Potluck /> */}
         </div>
       </div>
+      
       </StyledApp>
     </Router>
 
