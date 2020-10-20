@@ -112,9 +112,13 @@ const Register = () => {
         setUser({...user, [event.target.name]: event.target.value});
     };
 
+    const guestRegistering = (event) => {
+        event.preventDefault()
+        console.log("remember to register your muskrats!")
+    }
     return (
         <StyledFormContainer>
-            <StyledForm>
+            <StyledForm onSubmit={guestRegistering}>
                 <StyledLabel htmlFor='username'>Username</StyledLabel>
                 <StyledInputContainer>
                     <StyledInput 

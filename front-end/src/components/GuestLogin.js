@@ -38,7 +38,7 @@ const Login = () => {
 
   const loggingIn = (event) => {
     event.preventDefault()
-    console.log("hi there, are you bringing enough skrat for everyone?")
+    console.log("hi there, are you bringing enough 'skrat for everyone?")
   }
 
   return (
