@@ -83,6 +83,30 @@ const PotluckCreate = () => {
     meridiem:'',
     items: [],
   });
+    
+    const handleCommaSeparatedChange = evt => {
+        const { value } = evt.target
+        setItems({
+            commaSeparated: value,
+            multiline: value
+                .split(',')
+                .map(v => v.trim())
+                .filter(Boolean)
+            .join('\n'),
+        })
+    }
+        const handleMultilineChange = evt => {
+        const { value } = evt.target
+        setItems({
+            commaSeparated: value,
+            multiline: value
+                .split(',')
+                .map(v => v.trim())
+                .filter(Boolean)
+            .join('\n'),
+        })
+    }
+  const { url, path } = useParams();
 
   const [itemInput, setItemInput] = useState('');
   const [formErrors, setFormErrors]= useState(initialFormErrors);
