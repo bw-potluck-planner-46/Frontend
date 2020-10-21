@@ -5,7 +5,7 @@ import GuestStart from "./components/GuestStart"
 import GuestLogin from "./components/GuestLogin"
 import GuestRegister from "./components/GuestRegister"
 import GuestDashboard from "./privateGuestComponents/GuestDashboard"
-
+import PotluckCreate from './Private/PotluckCreate'
 import UserDashboard from "./Private/UserDashboard"
 
 import OrganizerStart from "./components/OrganizerStart"
@@ -33,6 +33,7 @@ const App = () => {
   return (
     
     <>
+    <PotluckCreate/>
         <Switch>
           <Route exact path="/">
             <StyledDiv>
