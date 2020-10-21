@@ -122,6 +122,8 @@ const StyledButton = styled.button`
     outline: none;
     &:hover{
         cursor: pointer;
+        background-color: #7E7E7E;
+        transform: scale(1.1);
     }
 `
 
