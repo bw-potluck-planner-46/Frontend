@@ -9,6 +9,9 @@ import GuestDashboard from "./privateGuestComponents/GuestDashboard"
 import UserDashboard from "./Private/UserDashboard"
 
 import OrganizerStart from "./components/OrganizerStart"
+import OrganizerLogin from "./components/OrganizerLogin"
+import OrganizerRegister from "./components/OrganizerRegister"
+import OrganizerDashboard from "./privateOrganizerComponents/OrganizerDashboard"
 
 import { BrowserRouter as Route, Switch, useHistory } from "react-router-dom";
 import styled from 'styled-components';
@@ -70,6 +73,18 @@ const App = () => {
           <Route path="/guest">
             <GuestStart />
           </Route>
+
+          <Route path="/organizer/dashboard">
+            <OrganizerDashboard />
+          </Route>
+
+          <Route path = "/organizer/register">
+            <OrganizerRegister />
+          </Route>
+
+          <Route path="/organizer/login">
+            <OrganizerLogin />
+          </Route> 
 
           <Route path="/organizer">
             <OrganizerStart />
