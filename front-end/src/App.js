@@ -1,6 +1,13 @@
 
 import React from 'react';
+
 import GuestStart from "./components/GuestStart"
+import GuestLogin from "./components/GuestLogin"
+import GuestRegister from "./components/GuestRegister"
+import GuestDashboard from "./privateGuestComponents/GuestDashboard"
+
+import UserDashboard from "./Private/UserDashboard"
+
 import OrganizerStart from "./components/OrganizerStart"
 
 import { BrowserRouter as Route, Switch, useHistory } from "react-router-dom";
@@ -27,16 +34,34 @@ const App = () => {
     
     <>
         <Switch>
-              <Route exact path="/">
-                <StyledDiv>
-                <StyledHeader><h1>Welcome to PotLuck Planner!</h1></StyledHeader>
+          <Route exact path="/">
+            <StyledDiv>
+              <StyledHeader>
+                <h1>Welcome to PotLuck Planner!</h1>
+              </StyledHeader>
                 <h2>Guests click here</h2>
                 <button onClick={guestRoute}>Guests</button>
                 <h2>Organizers click here</h2>
                 <button onClick={organizerRoute}>Organizers</button>
-                </StyledDiv>
-              </Route>
-            
+              </StyledDiv>
+          </Route>
+
+          <Route path="/userprofile">
+            <UserDashboard />
+          </Route>
+
+          <Route path="/guest/dashboard">
+            <GuestDashboard />
+          </Route>
+
+          <Route path = "/guest/register">
+            <GuestRegister />
+          </Route>
+
+          <Route path="/guest/login">
+            <GuestLogin />
+          </Route>  
+
           <Route path="/guest">
             <GuestStart />
           </Route>
