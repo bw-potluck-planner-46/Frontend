@@ -1,5 +1,5 @@
 import React, {useEffect} from "react";
-import axiosWithAuth from "../utils/axiosWithAuth";
+import axiosWithAuth from "../utils/AxiosWithAuth";
 import Input from "../utils/ChangeInputs";
 
 let Attending = (props) => {

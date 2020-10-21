@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import Input from '../utils/ChangeInputs';
-import axiosWithAuth from '../utils/axiosWithAuth';
+import axiosWithAuth from '../utils/AxiosWithAuth';
 
 let PotluckList = () => {
     let [list, setList] = Input([]);
