@@ -24,7 +24,7 @@ const PotluckCreate = () => {
   });
     
     const handleCommaSeparatedChange = evt => {
-        const { value } = evt.target
+        const { value } = evt, target
         setItems({
             commaSeparated: value,
             multiline: value
@@ -35,7 +35,7 @@ const PotluckCreate = () => {
         })
     }
         const handleMultilineChange = evt => {
-        const { value } = evt.target
+        const { value } = evt, target
         setItems({
             commaSeparated: value,
             multiline: value
@@ -118,7 +118,7 @@ const PotluckCreate = () => {
               <label>
                   Items enter:
                      <textarea 
-                     value={ "" } 
+                     value={ multiline } 
                      cols="30" 
                      rows="10" 
                      onChange={ handleMultilineChange }
