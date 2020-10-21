@@ -12,7 +12,7 @@ import OrganizerStart from "./components/OrganizerStart"
 
 import { BrowserRouter as Route, Switch, useHistory } from "react-router-dom";
 import styled from 'styled-components';
-import PotluckCreate from './privateGuestComponents/GuestPotluckCreate';
+import PotluckCreate from './Private/PotluckCreate';
 
 const StyledDiv = styled.div`
 background-color: rebeccapurple;
