@@ -12,6 +12,7 @@ import OrganizerStart from "./components/OrganizerStart"
 
 import { BrowserRouter as Route, Switch, useHistory } from "react-router-dom";
 import styled from 'styled-components';
+import PotluckCreate from './Private/PotluckCreate';
 
 const StyledDiv = styled.div`
 background-color: rebeccapurple;
@@ -48,6 +49,10 @@ const App = () => {
 
           <Route path="/userprofile">
             <UserDashboard />
+          </Route>
+
+          <Route path="/addpotluckform">
+            <PotluckCreate />
           </Route>
 
           <Route path="/guest/dashboard">
