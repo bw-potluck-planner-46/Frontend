@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react';
 import * as yup from 'yup';
 import styled from 'styled-components'
 
-const StyledFormContainer = styled.form`
+const StyledFormContainer = styled.div`
     display: flex;
     justify-content: center;
 `
