@@ -1,4 +1,4 @@
-import axiosWithAuth from '../utils/AxiosWithAuth'
+import axiosWithAuth from '../utils/axiosWithAuth'
 
 export const FETCH_POTLUCKS_START = 'FETCH_POTLUCKS_START'
 export const FETCH_POTLUCKS_SUCCESS = 'FETCH_POTLUCKS_SUCCESS'
