@@ -161,27 +161,6 @@ const Register = () => {
                     />
                     {errorState.password.length > 0 ? <StyledError>{errorState.password}</StyledError> : null}
                 </StyledInputContainer>
-                
-                <div>
-                    <input 
-                        id='organizer' 
-                        name='role' 
-                        type='radio' 
-                        value='Organizer' 
-                        onChange={changeHandler} 
-                    />
-                    <label htmlFor='organizer'>Organizer</label>
-
-                    <input 
-                        id='guest' 
-                        name='role' 
-                        type='radio' 
-                        value='Guest' 
-                        onChange={changeHandler} 
-                    />
-                    <label htmlFor='guest'>Guest</label>
-                    {errorState.role.length > 0 ? <StyledError>{errorState.role}</StyledError> : null}
-                </div>
 
                 <StyledButton type='submit' disabled={disabled}>Register</StyledButton>
             </StyledForm>
