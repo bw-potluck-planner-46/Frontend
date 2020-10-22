@@ -60,8 +60,7 @@ const StyledButton = styled.button`
 const formSchema = yup.object().shape({
     username: yup.string().required('Please enter a username').min(5, 'Must have at least 5 characters').max(15, 'May not be longer than 15 characters'),
     email: yup.string().email('Please enter a valid email').required('Please enter a valid email'),
-    password: yup.string().required('Password is required').min(5, 'Must have at least 5 characters'),
-    role: yup.string().required('Please select Organizer or Guest')
+    password: yup.string().required('Password is required').min(5, 'Must have at least 5 characters')
 })
 
 const Register = () => {
@@ -161,27 +160,6 @@ const Register = () => {
                     />
                     {errorState.password.length > 0 ? <StyledError>{errorState.password}</StyledError> : null}
                 </StyledInputContainer>
-                
-                <div>
-                    <input 
-                        id='organizer' 
-                        name='role' 
-                        type='radio' 
-                        value='Organizer' 
-                        onChange={changeHandler} 
-                    />
-                    <label htmlFor='organizer'>Organizer</label>
-
-                    <input 
-                        id='guest' 
-                        name='role' 
-                        type='radio' 
-                        value='Guest' 
-                        onChange={changeHandler} 
-                    />
-                    <label htmlFor='guest'>Guest</label>
-                    {errorState.role.length > 0 ? <StyledError>{errorState.role}</StyledError> : null}
-                </div>
 
                 <StyledButton type='submit' disabled={disabled}>Register</StyledButton>
             </StyledForm>
