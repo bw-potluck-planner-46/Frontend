@@ -74,7 +74,6 @@ const App = () => {
   return (
     
     <>
-    <PotluckCreate/>
         <Switch>
           <Route exact path="/">
             <StyledAppContainer>
