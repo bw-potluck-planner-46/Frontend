@@ -1,6 +1,8 @@
 
 import React from 'react';
 
+import FoodImage from './components/FoodImage'
+
 import GuestStart from "./components/GuestStart"
 import GuestLogin from "./components/GuestLogin"
 import GuestRegister from "./components/GuestRegister"
@@ -90,6 +92,7 @@ const App = () => {
                   <StyledButton onClick={organizerRoute}>Organizers</StyledButton>
                 </StyledGuestAndOrganizerContainer>
               </StyledRouteContainer>
+              <FoodImage />
             </StyledAppContainer>
           </Route>
 
