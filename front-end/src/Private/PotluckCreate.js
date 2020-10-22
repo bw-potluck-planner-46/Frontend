@@ -83,7 +83,7 @@ const PotluckCreate = () => {
     meridiem:'',
     items: [],
   });
-    
+
   const [itemInput, setItemInput] = useState('');
   const [formErrors, setFormErrors]= useState(initialFormErrors);
   const [item, setItem] = useState(potlucks.items)
