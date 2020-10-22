@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import * as yup from "yup";
 
 const StyledContainer = styled.form`
-  dispaly:flex;
+  display:flex;
   justify-content: center;
 `
 const StyledForm = styled.form`
@@ -233,7 +233,7 @@ const PotluckCreate = () => {
         <p>{item}</p>
         </div>
       </StyledList>
-      <StyledButton type='button' onClick={onChange}>Craete</StyledButton>
+      <StyledButton type='button' onClick={onChange}>Create</StyledButton>
      </StyledForm>
     </StyledContainer>
   );
