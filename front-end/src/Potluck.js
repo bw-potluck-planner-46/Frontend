@@ -24,3 +24,5 @@ function Potluck({ details }) {
     </div>
   );
 }
+
+export default Potluck;
