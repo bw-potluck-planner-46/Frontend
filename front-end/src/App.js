@@ -15,7 +15,6 @@ import OrganizerDashboard from "./privateOrganizerComponents/OrganizerDashboard"
 
 import { BrowserRouter as Route, Switch, useHistory } from "react-router-dom";
 import styled from 'styled-components';
-import PotluckCreate from './Private/PotluckCreate';
 
 const StyledAppContainer = styled.div`
   display: flex;
