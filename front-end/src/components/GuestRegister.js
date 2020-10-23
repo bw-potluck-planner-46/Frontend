@@ -3,6 +3,8 @@ import React, { useState, useEffect } from 'react';
 import * as yup from 'yup';
 import styled from 'styled-components'
 import { useHistory } from 'react-router-dom';
+import axiosWithAuth from '../utils/AxiosWithAuth';
+import axios from 'axios'
 
 const StyledFormContainer = styled.form`
     display: flex;
@@ -58,28 +60,32 @@ const StyledButton = styled.button`
 `
 
 const formSchema = yup.object().shape({
+    first_name: yup.string().required('Please enter a first name').min(2, 'must have 2 characters'),
+    last_name: yup.string().required('Please enter a last name').min(2, 'must have 2 characters'),
     username: yup.string().required('Please enter a username').min(5, 'Must have at least 5 characters').max(15, 'May not be longer than 15 characters'),
     email: yup.string().email('Please enter a valid email').required('Please enter a valid email'),
     password: yup.string().required('Password is required').min(5, 'Must have at least 5 characters')
 })
 
-const Register = () => {
+const Register = (props) => {
 
     const [user, setUser] = useState(
         {
+            first_name: '',
+            last_name: '',
             username: '',
             email: '',
             password: '',
-            role: ''
         }
     );
 
     const [errorState, setErrorState] = useState(
         {
+            first_name: '',
+            last_name: '',
             username: '',
             email: '',
             password: '',
-            role: ''
         }
     )
 
@@ -117,11 +123,41 @@ const Register = () => {
     const guestRegistering = (event) => {
         event.preventDefault()
         console.log("remember to register your muskrats!")
-        history.push(`/guest/dashboard`)
+        // props.postUser(user)
+        console.log("posting user:", user)
+        axiosWithAuth()
+            .post('/api/auth/register', user)
+            .then(response => console.log("registration response:", response), history.push(`/guest/dashboard`))
+            .catch(error => console.log("registration error:", error))
+        history.push(`/guest/login`)
     }
     return (
         <StyledFormContainer>
             <StyledForm onSubmit={guestRegistering}>
+            <StyledLabel htmlFor='first_name'>First Name</StyledLabel>
+                <StyledInputContainer>
+                    <StyledInput 
+                        id='first_name' 
+                        name='first_name' 
+                        type='text' 
+                        placeholder='First Name'
+                        value={user.first_name}
+                        onChange={changeHandler}
+                    />
+                    {errorState.first_name.length > 0 ? <StyledError>{errorState.first_name}</StyledError> : null}
+                </StyledInputContainer>
+                <StyledLabel htmlFor='last_name'>Last Name</StyledLabel>
+                <StyledInputContainer>
+                    <StyledInput 
+                        id='last_name' 
+                        name='last_name' 
+                        type='text' 
+                        placeholder='Last Name'
+                        value={user.last_name}
+                        onChange={changeHandler}
+                    />
+                    {errorState.last_name.length > 0 ? <StyledError>{errorState.last_name}</StyledError> : null}
+                </StyledInputContainer>
                 <StyledLabel htmlFor='username'>Username</StyledLabel>
                 <StyledInputContainer>
                     <StyledInput 
