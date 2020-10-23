@@ -1,6 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { useHistory } from "react-router-dom";
 import * as yup from "yup";
+import axios from "axios"
+import axiosWithAuth from "../utils/AxiosWithAuth"
+import {postLogin} from "../actions"
+import styled from 'styled-components'
 
 
 const validationSchema = yup.object().shape({
@@ -41,12 +45,17 @@ const Login = () => {
   
   const loggingIn = (event) => {
     event.preventDefault()
-    console.log("hi there, are you bringing enough 'skrat for everyone?")
-    history.push(`/guest/dashboard`)
+    console.log(`hi there, are you bringing enough 'skrat for everyone, ${user.username}?`)
+   
+    axiosWithAuth()
+      .post('/api/auth/login', user)
+      .then(response => window.localStorage.setItem('token', response.data.token), history.push(`/guest/dashboard`))
+      .catch(error => console.log(error))
   }
 
   return (
-    <div className="form-group login">
+    <StyledDiv className="form-group login">
+      <h2>Hello guest, please log in for muskrats</h2>
       <form className="form-group login inputs" onSubmit={loggingIn}>
         <label>
           Username:
@@ -74,7 +83,16 @@ const Login = () => {
         </label>
         <button type="submit">Log In</button>
       </form>
-    </div>
+    </StyledDiv>
   );
 };
+
+const StyledDiv = styled.div`
+* {
+  border: 1px solid purple;
+  margin: 2%;
+  text-align: center;
+}
+`
+
 export default Login;
