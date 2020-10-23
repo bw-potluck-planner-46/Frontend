@@ -4,16 +4,11 @@ import styled from 'styled-components';
 import * as yup from "yup";
 
 const StyledContainer = styled.form`
-<<<<<<< HEAD
-  display:flex;
-  justify-content: center;
-=======
 display: flex;
 justify-content: center;
 background-color: #867EBA;
 padding-bottom: 30%;
 padding-top:10%;
->>>>>>> 7a215a49186eb7602cf8e32670a2b786bd8744ea
 `
 const StyledForm = styled.form`
 width: 60%;
@@ -55,7 +50,7 @@ border: 1px solid grey;
 border-radius: 50px;
 outline: none;
 font-size: 1rem;
-dispaly:flex;
+display:flex;
 justify-content:center;
 align-items:center;
 `
@@ -101,7 +96,7 @@ const StyledItemContainer = styled.div`
 const StyledItem = styled.div`
 width:100%;
 display:flex;
-flex-directiom:column;
+flex-direction:column;
 justify-content:center;
 align-items:center;
 
@@ -109,12 +104,12 @@ align-items:center;
 
 const StyledAddItem = styled.div`
 width:35%;
-dispaly:flex;
+display:flex;
 `
 
 const StyledItemList = styled.div`
 width:55%;
-dispaly:flex;
+display:flex;
 justify-items:center;
 align-items:center;
 `
