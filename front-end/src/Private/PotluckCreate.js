@@ -154,6 +154,7 @@ const PotluckCreate = (props) => {
   const [potlucks, setPotlucks] = useState(initialPotlucks);
   const [formValues, setFormValues] = useState(initialFormValues);
 
+
   const [formErrors, setFormErrors]= useState(initialFormErrors);
   const [name, setName] = useState('');
   const [potluckItem, setPotluckItems] = useState(itemList);

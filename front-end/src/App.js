@@ -1,6 +1,8 @@
 
 import React from 'react';
 
+import FoodImage from './components/FoodImage'
+
 import GuestStart from "./components/GuestStart"
 import GuestLogin from "./components/GuestLogin"
 import GuestRegister from "./components/GuestRegister"
@@ -15,7 +17,6 @@ import OrganizerDashboard from "./privateOrganizerComponents/OrganizerDashboard"
 
 import { BrowserRouter as Route, Switch, useHistory } from "react-router-dom";
 import styled from 'styled-components';
-
 
 const StyledAppContainer = styled.div`
   display: flex;
@@ -75,7 +76,6 @@ const App = () => {
   return (
     
     <>
-    <PotluckCreate/>
         <Switch>
           <Route exact path="/">
             <StyledAppContainer>
@@ -92,6 +92,7 @@ const App = () => {
                   <StyledButton onClick={organizerRoute}>Organizers</StyledButton>
                 </StyledGuestAndOrganizerContainer>
               </StyledRouteContainer>
+              <FoodImage />
             </StyledAppContainer>
           </Route>
 
