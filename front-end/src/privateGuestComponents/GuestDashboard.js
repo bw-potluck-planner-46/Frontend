@@ -2,6 +2,7 @@ import React from 'react'
 import { useHistory, Route } from 'react-router-dom'
 import GuestEvent from './GuestEvent'
 import GuestProfile from "./GuestProfile"
+import PrivateRoute from "../utils/PrivateRoute"
 
 const GuestDashboard = () => {
     const history = useHistory()
@@ -29,7 +30,8 @@ const GuestDashboard = () => {
             </Route> 
             <Route path='/guest/profile-setup'>
                 <GuestProfile />
-            </Route> 
+            </Route>
+             
     </>       
     )
 }

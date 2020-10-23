@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { useHistory } from "react-router-dom";
 import * as yup from "yup";
+import axios from "axios"
+import axiosWithAuth from "../utils/AxiosWithAuth"
+import {postLogin} from "../actions"
 
 
 const validationSchema = yup.object().shape({
@@ -41,8 +44,12 @@ const Login = () => {
   
   const loggingIn = (event) => {
     event.preventDefault()
-    console.log("hi there, are you bringing enough 'skrat for everyone?")
-    history.push(`/guest/dashboard`)
+    console.log(`hi there, are you bringing enough 'skrat for everyone, ${user.username}?`)
+   
+    axiosWithAuth()
+      .post('/api/auth/login', user)
+      .then(response => window.localStorage.setItem('token', response.data.token), history.push(`/guest/dashboard`))
+      .catch(error => console.log(error))
   }
 
   return (

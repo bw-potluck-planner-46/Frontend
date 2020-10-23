@@ -7,13 +7,17 @@ import GuestStart from "./components/GuestStart"
 import GuestLogin from "./components/GuestLogin"
 import GuestRegister from "./components/GuestRegister"
 import GuestDashboard from "./privateGuestComponents/GuestDashboard"
-import PotluckCreate from './Private/PotluckCreate'
-import UserDashboard from "./Private/UserDashboard"
+import GuestProfile from "./privateGuestComponents/GuestProfile"
+import GuestEvent from './privateGuestComponents/GuestEvent'
+import PrivateRoute from "./utils/PrivateRoute"
 
 import OrganizerStart from "./components/OrganizerStart"
 import OrganizerLogin from "./components/OrganizerLogin"
 import OrganizerRegister from "./components/OrganizerRegister"
 import OrganizerDashboard from "./privateOrganizerComponents/OrganizerDashboard"
+
+import PotluckCreate from './Private/PotluckCreate'
+import UserDashboard from "./Private/UserDashboard"
 
 import { BrowserRouter as Route, Switch, useHistory } from "react-router-dom";
 import styled from 'styled-components';
@@ -104,9 +108,15 @@ const App = () => {
             <PotluckCreate />
           </Route>
 
-          <Route path="/guest/dashboard">
+          <PrivateRoute path="/guest/event/:id" component={GuestEvent} />
+
+          <PrivateRoute path="/guest/profile-setup" component={GuestProfile} />
+
+          <PrivateRoute path="/guest/dashboard" component={GuestDashboard} />
+          
+          {/* <Route path = "/guest/dashboard">
             <GuestDashboard />
-          </Route>
+          </Route> */}
 
           <Route path = "/guest/register">
             <GuestRegister />
