@@ -163,14 +163,7 @@ const Register = () => {
                 </StyledInputContainer>
                 
                 <div>
-                    <input 
-                        id='organizer' 
-                        name='role' 
-                        type='radio' 
-                        value='Organizer' 
-                        onChange={changeHandler} 
-                    />
-                    <label htmlFor='organizer'>Organizer</label>
+                    
 
                     <h5>Already have an account ? <a href='./Login'>Log In</a></h5>
                 </div>

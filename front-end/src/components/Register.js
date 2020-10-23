@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react';
 import * as yup from 'yup';
 import styled from 'styled-components'
 
-const StyledFormContainer = styled.form`
+const StyledFormContainer = styled.div`
     display: flex;
     justify-content: center;
 `
@@ -53,6 +53,8 @@ const StyledButton = styled.button`
     outline: none;
     &:hover{
         cursor: pointer;
+        background-color: #7E7E7E;
+        transform: scale(1.1);
     }
 `
 

@@ -83,7 +83,44 @@ const initialPotlucks = [];
 const PotluckCreate = (props) => {
   const{items} = props;
   const [potlucks, setPotlucks] = useState(initialPotlucks);
+<<<<<<< HEAD
   const [formValues, setFormValues] = useState(initialFormValues);
+=======
+  const [formValues, setFormValues] = useState({
+    name: "",
+    location: "",
+    date: "",
+    time: "",
+    meridiem:'',
+    items: [],
+  });
+    
+    const handleCommaSeparatedChange = evt => {
+        const { value } = evt.target
+        setItems({
+            commaSeparated: value,
+            multiline: value
+                .split(',')
+                .map(v => v.trim())
+                .filter(Boolean)
+            .join('\n'),
+        })
+    }
+        const handleMultilineChange = evt => {
+        const { value } = evt.target
+        setItems({
+            commaSeparated: value,
+            multiline: value
+                .split(',')
+                .map(v => v.trim())
+                .filter(Boolean)
+            .join('\n'),
+        })
+    }
+  const { url, path } = useParams();
+
+  const [itemInput, setItemInput] = useState('');
+>>>>>>> b72268650c7e357e92b1f0b8df359e00aef71487
   const [formErrors, setFormErrors]= useState(initialFormErrors);
   const [name, setName] = useState('');
   const [potluckItem, setPotluckItems] = useState(itemList);
