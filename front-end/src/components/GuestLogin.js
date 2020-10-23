@@ -4,6 +4,7 @@ import * as yup from "yup";
 import axios from "axios"
 import axiosWithAuth from "../utils/AxiosWithAuth"
 import {postLogin} from "../actions"
+import styled from 'styled-components'
 
 
 const validationSchema = yup.object().shape({
@@ -53,7 +54,8 @@ const Login = () => {
   }
 
   return (
-    <div className="form-group login">
+    <StyledDiv className="form-group login">
+      <h2>Hello guest, please log in for muskrats</h2>
       <form className="form-group login inputs" onSubmit={loggingIn}>
         <label>
           Username:
@@ -81,7 +83,16 @@ const Login = () => {
         </label>
         <button type="submit">Log In</button>
       </form>
-    </div>
+    </StyledDiv>
   );
 };
+
+const StyledDiv = styled.div`
+* {
+  border: 1px solid purple;
+  margin: 2%;
+  text-align: center;
+}
+`
+
 export default Login;
