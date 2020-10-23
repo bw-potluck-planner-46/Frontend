@@ -50,7 +50,7 @@ border: 1px solid grey;
 border-radius: 50px;
 outline: none;
 font-size: 1rem;
-dispaly:flex;
+display:flex;
 justify-content:center;
 align-items:center;
 `
@@ -96,7 +96,7 @@ const StyledItemContainer = styled.div`
 const StyledItem = styled.div`
 width:100%;
 display:flex;
-flex-directiom:column;
+flex-direction:column;
 justify-content:center;
 align-items:center;
 
@@ -104,12 +104,12 @@ align-items:center;
 
 const StyledAddItem = styled.div`
 width:35%;
-dispaly:flex;
+display:flex;
 `
 
 const StyledItemList = styled.div`
 width:55%;
-dispaly:flex;
+display:flex;
 justify-items:center;
 align-items:center;
 `

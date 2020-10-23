@@ -15,12 +15,15 @@ import OrganizerStart from "./components/OrganizerStart"
 import OrganizerLogin from "./components/OrganizerLogin"
 import OrganizerRegister from "./components/OrganizerRegister"
 import OrganizerDashboard from "./privateOrganizerComponents/OrganizerDashboard"
+import OrganizerProfile from "./privateOrganizerComponents/OrganizerProfile"
+import OrganizerEvent from './privateOrganizerComponents/OrganizerEvent'
 
 import PotluckCreate from './Private/PotluckCreate'
 import UserDashboard from "./Private/UserDashboard"
 
 import { BrowserRouter as Route, Switch, useHistory } from "react-router-dom";
 import styled from 'styled-components';
+
 
 const StyledAppContainer = styled.div`
   display: flex;
@@ -130,9 +133,15 @@ const App = () => {
             <GuestStart />
           </Route>
 
-          <Route path="/organizer/dashboard">
+          <PrivateRoute path="/organizer/event/:id" component={OrganizerEvent} />
+
+          <PrivateRoute path="/organizer/profile-setup" component={OrganizerProfile} />
+
+          <PrivateRoute path="/organizer/dashboard" component={OrganizerDashboard} />
+
+          {/* <Route path="/organizer/dashboard">
             <OrganizerDashboard />
-          </Route>
+          </Route> */}
 
           <Route path = "/organizer/register">
             <OrganizerRegister />

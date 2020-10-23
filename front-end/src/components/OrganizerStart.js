@@ -1,7 +1,8 @@
 import React from 'react'
 import { Switch, useHistory, Route } from 'react-router-dom'
 import OrganizerLogin from "./OrganizerLogin"
-import OrganizerRegister from "./OrganizerRegister";
+import OrganizerRegister from "./OrganizerRegister"
+import styled from "styled-components"
 
 const OrganizerStart = () => {
     const history = useHistory()
@@ -15,11 +16,11 @@ const OrganizerStart = () => {
 
     return (
         <>
-            <div>
-                <h2>Welcome Organizer!</h2>
+            <StyledDiv>
+                <h2>Welcome Organizers!</h2>
                 <button onClick={organizerLogin}>Log In</button>
                 <button onClick={organizerRegister}>Register</button>
-            </div>
+            </StyledDiv>
             <Switch>
                 <Route path="/organizer/login">
                     <OrganizerLogin />
@@ -32,5 +33,12 @@ const OrganizerStart = () => {
     )
 }
 
-export default OrganizerStart
+const StyledDiv = styled.div`
+* {
+  border: 1px solid purple;
+  margin: 2%;
+  text-align: center;
+}
+`
 
+export default OrganizerStart
