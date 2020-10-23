@@ -1,6 +1,7 @@
 import React, { useState, useEffect} from "react";
 import axios from 'axios';
 import styled from 'styled-components';
+import { v4 as uuidv4 } from 'uuid';
 import * as yup from "yup";
 
 const StyledContainer = styled.form`
@@ -70,23 +71,24 @@ const initialFormErrors={
   time:'',
   meridiem:'',
 };
+const itemList = [
+  {
+    id:'',
+    name:'',
+  },
+];
 
 const initialPotlucks = [];
 
-const PotluckCreate = () => {
+const PotluckCreate = (props) => {
+  const{items} = props;
   const [potlucks, setPotlucks] = useState(initialPotlucks);
-  const [formValues, setFormValues] = useState({
-    name: "",
-    location: "",
-    date: "",
-    time: "",
-    meridiem:'',
-    items: [],
-  });
-
-  const [itemInput, setItemInput] = useState('');
+  const [formValues, setFormValues] = useState(initialFormValues);
   const [formErrors, setFormErrors]= useState(initialFormErrors);
-  const [item, setItem] = useState(potlucks.items)
+  const [name, setName] = useState('');
+  const [potluckItem, setPotluckItems] = useState(itemList);
+  
+
 
   const getPotlucks=()=>{
     axios.get(`https://www.POTLUCKS.com/potlucks`)
@@ -135,14 +137,15 @@ const PotluckCreate = () => {
    setPotlucks({...potlucks, [evt.target.name]: evt.target.value});
 };
 
-  const addItem =() =>{
-   const newItemsList = potlucks.items.split(',').map(v=>v.trim()).filter(Boolean).join('\n');
-   setItem(newItemsList);
-  
-  }
+const itemChange = (evt)=>{
+  evt.preventDefault();
+  setName(evt.target.value)
+}
 
-  const clear=()=>{
-    setItem('');
+  const addItem =() =>{
+    const newList = potluckItem.concat({name});
+    setPotluckItems(newList);
+    setName('');
   }
  
 
@@ -218,25 +221,41 @@ const PotluckCreate = () => {
       Suggested Items:
       </StyledLabel>
 
-      <StyledInputs 
-        type="text"
-        id='item'
-        name='items'
-        value={item}
-        onChange={onChange}
-       />
-       <StyledButton type='button' onClick={()=> addItem()}>Add Item</StyledButton>
+      <AddItem
+        name={name}
+        onChange={itemChange}
+        onAdd={addItem}
+      />
+      <ItemList
+        potluckItem={potluckItem}
+      />
 
-       <StyledList>
-        <div>
-        <h3>Items Added:</h3>
-        <p>{item}</p>
-        </div>
-      </StyledList>
       <StyledButton type='button' onClick={onChange}>Craete</StyledButton>
      </StyledForm>
     </StyledContainer>
   );
 };
+
+const AddItem = ({name, onChange, onAdd})=>(
+  <div>
+    <input 
+    type="text"
+    value={name}
+    onChange={onChange}
+    />
+    <button type='button' onClick={onAdd}>Add Item</button>
+  </div>
+);
+
+const ItemList=({potluckItem})=>(
+  <div>
+  <h3>Added Items</h3>
+  <ul>
+    {potluckItem.map(item=>(
+      <ol key={item.id}>{item.name}</ol>
+    ))}
+  </ul>
+  </div>
+)
 
 export default PotluckCreate;
