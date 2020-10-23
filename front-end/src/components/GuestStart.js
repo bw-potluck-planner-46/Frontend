@@ -2,6 +2,7 @@ import React from 'react'
 import { Switch, useHistory, Route } from 'react-router-dom'
 import GuestLogin from "./GuestLogin"
 import GuestRegister from "./GuestRegister"
+import styled from "styled-components"
 
 const GuestStart = () => {
     const history = useHistory()
@@ -15,11 +16,11 @@ const GuestStart = () => {
 
     return (
         <>
-            <div>
+            <StyledDiv>
                 <h2>Welcome Guest!</h2>
                 <button onClick={guestLogin}>Log In</button>
                 <button onClick={guestRegister}>Register</button>
-            </div>
+            </StyledDiv>
             <Switch>
                 <Route path="/guest/login">
                     <GuestLogin />
@@ -31,5 +32,13 @@ const GuestStart = () => {
         </>
     )
 }
+
+const StyledDiv = styled.div`
+* {
+  border: 1px solid purple;
+  margin: 2%;
+  text-align: center;
+}
+`
 
 export default GuestStart

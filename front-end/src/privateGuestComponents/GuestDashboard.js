@@ -3,6 +3,7 @@ import { useHistory, Route } from 'react-router-dom'
 import GuestEvent from './GuestEvent'
 import GuestProfile from "./GuestProfile"
 import PrivateRoute from "../utils/PrivateRoute"
+import styled from "styled-components"
 
 const GuestDashboard = () => {
     const history = useHistory()
@@ -17,14 +18,14 @@ const GuestDashboard = () => {
 
     return (
     <>
-            <div>
+            <StyledDiv>
                 <h2>Welcome to Guest Dashboard!</h2>
                 <h3>hope you'll save room for some 'skrat!</h3>
                 <button onClick={profileSetup}>set up your profile here</button>
                 <div onClick={goToEvent}>
                     <p>this is a potluck event</p>
                 </div>
-            </div>
+            </StyledDiv>
             <Route path='/guest/event/:id'>
                 <GuestEvent />
             </Route> 
@@ -35,5 +36,16 @@ const GuestDashboard = () => {
     </>       
     )
 }
+
+const StyledDiv = styled.div`
+* {
+  border: 1px solid purple;
+  margin: 2%;
+  text-align: center;
+  display: flex;
+  justify-content : center;
+}
+`
+
 
 export default GuestDashboard
